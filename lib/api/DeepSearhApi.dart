@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class DeepSearchApi {
-  final String baseUrl = 'https://api-v2.deepsearch.com/v1/articles';
-  final String apiKey = '6b877175a5614e14a0ea3f40506d9311';
+  final String baseUrl = ;
+  final String apiKey = ;
 
   Future<List<Map<String, String>>> fetchArticles({
     required String companyName,
