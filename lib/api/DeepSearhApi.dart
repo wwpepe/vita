@@ -1,35 +1,29 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class DeepSearchApi {
-  final String baseUrl = ;
-  final String apiKey = ;
+import 'dart:convert';
 
+class DeepSearchApi {
+  // 실제 API 호출 대신 임시 데이터를 반환
   Future<List<Map<String, String>>> fetchArticles({
     required String companyName,
     required String dateFrom,
     required String dateTo,
   }) async {
-    final Uri url = Uri.parse(
-        '$baseUrl?company_name=$companyName&date_from=$dateFrom&date_to=$dateTo&api_key=$apiKey');
-
-    try {
-      final response = await http.get(url);
-
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        return List<Map<String, String>>.from(data['results'].map((item) => {
-          'title': item['title'],
-          'link': item['link'],
-          'description': item['description'] ?? '',
-          'date': item['date'] ?? '',
-        }));
-      } else {
-        throw Exception(
-            'Failed to fetch articles. Status code: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error occurred while fetching articles: $e');
-    }
+    // 임시 데이터
+    return [
+      {
+        'title': 'Example Article 1',
+        'link': 'https://example.com/article1',
+        'description': 'This is a description for article 1.',
+        'date': '2023-01-01',
+      },
+      {
+        'title': 'Example Article 2',
+        'link': 'https://example.com/article2',
+        'description': 'This is a description for article 2.',
+        'date': '2023-01-02',
+      },
+    ];
   }
 }
